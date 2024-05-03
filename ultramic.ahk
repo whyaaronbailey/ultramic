@@ -1,7 +1,7 @@
 #SingleInstance Force
 #include lib/AHKHID.ahk
 #Persistent
-Menu, Tray, Tip, UltraMic usage`n Left mouse Powermic : Copy Acc# `n Right mouse Powermic: Open in GE `n Text Powermic button: Open in Epic
+Menu, Tray, Tip, UltraMic
 Menu, Tray, Icon, ultramic.ico
 Menu, Tray, Add
 Menu, Tray, Add, Microsoft Edge, OpenEdge
