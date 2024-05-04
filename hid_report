@@ -1,0 +1,254 @@
+Frame 3613: 92 bytes on wire (736 bits), 92 bytes captured (736 bits) on interface \\.\USBPcap1, id 0
+USB URB
+    [Source: 1.19.0]
+    [Destination: host]
+    USBPcap pseudoheader length: 28
+    IRP ID: 0xffffbb8f97a0e8a0
+    IRP USBD_STATUS: USBD_STATUS_SUCCESS (0x00000000)
+    URB Function: URB_FUNCTION_CONTROL_TRANSFER (0x0008)
+    IRP information: 0x01, Direction: PDO -> FDO
+        0000 000. = Reserved: 0x00
+        .... ...1 = Direction: PDO -> FDO (0x1)
+    URB bus id: 1
+    Device address: 19
+    Endpoint: 0x80, Direction: IN
+        1... .... = Direction: IN (1)
+        .... 0000 = Endpoint number: 0
+    URB transfer type: URB_CONTROL (0x02)
+    Packet Data Length: 64
+    [Request in: 3612]
+    [Time from request: 0.000179000 seconds]
+    Control transfer stage: Complete (3)
+    [bInterfaceClass: HID (0x03)]
+HID Report
+    Usage Page (Generic Desktop Controls)
+        Header
+            .... ..01 = bSize: 1 byte (1)
+            .... 01.. = bType: Global (1)
+            0000 .... = bTag: Usage Page (0x0)
+        Usage Page: Generic Desktop Controls (0x01)
+    Usage (Undefined)
+        Header
+            .... ..01 = bSize: 1 byte (1)
+            .... 10.. = bType: Local (2)
+            0000 .... = bTag: Usage (0x0)
+        Usage: Undefined (0x00)
+    Collection (Application)
+        Header
+            .... ..01 = bSize: 1 byte (1)
+            .... 00.. = bType: Main (0)
+            1010 .... = bTag: Collection (0xa)
+        Collection type: Application (0x01)
+        Usage Page (LED)
+            Header
+                .... ..01 = bSize: 1 byte (1)
+                .... 01.. = bType: Global (1)
+                0000 .... = bTag: Usage Page (0x0)
+            Usage Page: LED (0x08)
+        Usage (Generic Indicator)
+            Header
+                .... ..01 = bSize: 1 byte (1)
+                .... 10.. = bType: Local (2)
+                0000 .... = bTag: Usage (0x0)
+            Usage: Generic Indicator (0x4b)
+        Logical Minimum (0)
+            Header
+                .... ..01 = bSize: 1 byte (1)
+                .... 01.. = bType: Global (1)
+                0001 .... = bTag: Logical Minimum (0x1)
+            Logical minimum: 0
+        Logical Maximum (1)
+            Header
+                .... ..01 = bSize: 1 byte (1)
+                .... 01.. = bType: Global (1)
+                0010 .... = bTag: Logical Maximum (0x2)
+            Logical maximum: 1
+        Report Count (8)
+            Header
+                .... ..01 = bSize: 1 byte (1)
+                .... 01.. = bType: Global (1)
+                1001 .... = bTag: Report Count (0x9)
+            Report count: 8
+        Report Size (1)
+            Header
+                .... ..01 = bSize: 1 byte (1)
+                .... 01.. = bType: Global (1)
+                0111 .... = bTag: Report Size (0x7)
+            Report size: 1
+        Output (Data,Var,Abs)
+            Header
+                .... ..01 = bSize: 1 byte (1)
+                .... 00.. = bType: Main (0)
+                1001 .... = bTag: Output (0x9)
+            .... .... 0 = Data/constant: Data
+            .... ...1 . = Data type: Variable
+            .... ..0. . = Coordinates: Absolute
+            .... .0.. . = Min/max wraparound: No Wrap
+            .... 0... . = Physical relationship to data: Linear
+            ...0 .... . = Preferred state: Preferred State
+            ..0. .... . = Has null position: No Null position
+            .0.. .... . = (Non)-volatile: Non Volatile
+            0... .... . = Bits or bytes: Buffered bytes (default, no second byte present)
+        Usage Page (Button)
+            Header
+                .... ..01 = bSize: 1 byte (1)
+                .... 01.. = bType: Global (1)
+                0000 .... = bTag: Usage Page (0x0)
+            Usage Page: Button (0x09)
+        Logical Minimum (0)
+            Header
+                .... ..01 = bSize: 1 byte (1)
+                .... 01.. = bType: Global (1)
+                0001 .... = bTag: Logical Minimum (0x1)
+            Logical minimum: 0
+        Logical Maximum (1)
+            Header
+                .... ..01 = bSize: 1 byte (1)
+                .... 01.. = bType: Global (1)
+                0010 .... = bTag: Logical Maximum (0x2)
+            Logical maximum: 1
+        Report Size (1)
+            Header
+                .... ..01 = bSize: 1 byte (1)
+                .... 01.. = bType: Global (1)
+                0111 .... = bTag: Report Size (0x7)
+            Report size: 1
+        Report Count (8)
+            Header
+                .... ..01 = bSize: 1 byte (1)
+                .... 01.. = bType: Global (1)
+                1001 .... = bTag: Report Count (0x9)
+            Report count: 8
+        Input (Const,Array,Abs)
+            Header
+                .... ..01 = bSize: 1 byte (1)
+                .... 00.. = bType: Main (0)
+                1000 .... = bTag: Input (0x8)
+            .... .... 1 = Data/constant: Constant
+            .... ...0 . = Data type: Array
+            .... ..0. . = Coordinates: Absolute
+            .... .0.. . = Min/max wraparound: No Wrap
+            .... 0... . = Physical relationship to data: Linear
+            ...0 .... . = Preferred state: Preferred State
+            ..0. .... . = Has null position: No Null position
+            .0.. .... . = [Reserved]: False
+            0... .... . = Bits or bytes: Buffered bytes (default, no second byte present)
+        Usage Minimum (0x01)
+            Header
+                .... ..01 = bSize: 1 byte (1)
+                .... 10.. = bType: Local (2)
+                0001 .... = bTag: Usage Minimum (0x1)
+            Usage minimum: 0x01
+        Usage Maximum (0x0e)
+            Header
+                .... ..01 = bSize: 1 byte (1)
+                .... 10.. = bType: Local (2)
+                0010 .... = bTag: Usage Maximum (0x2)
+            Usage maximum: 0x0e
+        Logical Minimum (0)
+            Header
+                .... ..01 = bSize: 1 byte (1)
+                .... 01.. = bType: Global (1)
+                0001 .... = bTag: Logical Minimum (0x1)
+            Logical minimum: 0
+        Logical Maximum (1)
+            Header
+                .... ..01 = bSize: 1 byte (1)
+                .... 01.. = bType: Global (1)
+                0010 .... = bTag: Logical Maximum (0x2)
+            Logical maximum: 1
+        Report Count (14)
+            Header
+                .... ..01 = bSize: 1 byte (1)
+                .... 01.. = bType: Global (1)
+                1001 .... = bTag: Report Count (0x9)
+            Report count: 14
+        Input (Data,Var,Abs)
+            Header
+                .... ..01 = bSize: 1 byte (1)
+                .... 00.. = bType: Main (0)
+                1000 .... = bTag: Input (0x8)
+            .... .... 0 = Data/constant: Data
+            .... ...1 . = Data type: Variable
+            .... ..0. . = Coordinates: Absolute
+            .... .0.. . = Min/max wraparound: No Wrap
+            .... 0... . = Physical relationship to data: Linear
+            ...0 .... . = Preferred state: Preferred State
+            ..0. .... . = Has null position: No Null position
+            .0.. .... . = [Reserved]: False
+            0... .... . = Bits or bytes: Buffered bytes (default, no second byte present)
+        Report Count (2)
+            Header
+                .... ..01 = bSize: 1 byte (1)
+                .... 01.. = bType: Global (1)
+                1001 .... = bTag: Report Count (0x9)
+            Report count: 2
+        Input (Const,Array,Abs)
+            Header
+                .... ..01 = bSize: 1 byte (1)
+                .... 00.. = bType: Main (0)
+                1000 .... = bTag: Input (0x8)
+            .... .... 1 = Data/constant: Constant
+            .... ...0 . = Data type: Array
+            .... ..0. . = Coordinates: Absolute
+            .... .0.. . = Min/max wraparound: No Wrap
+            .... 0... . = Physical relationship to data: Linear
+            ...0 .... . = Preferred state: Preferred State
+            ..0. .... . = Has null position: No Null position
+            .0.. .... . = [Reserved]: False
+            0... .... . = Bits or bytes: Buffered bytes (default, no second byte present)
+        Usage Page (Reserved)
+            Header
+                .... ..01 = bSize: 1 byte (1)
+                .... 01.. = bType: Global (1)
+                0000 .... = bTag: Usage Page (0x0)
+            Usage Page: Reserved (0xff)
+        Usage (Reserved)
+            Header
+                .... ..01 = bSize: 1 byte (1)
+                .... 10.. = bType: Local (2)
+                0000 .... = bTag: Usage (0x0)
+            Usage: Reserved (0x00)
+        Logical Minimum (0)
+            Header
+                .... ..01 = bSize: 1 byte (1)
+                .... 01.. = bType: Global (1)
+                0001 .... = bTag: Logical Minimum (0x1)
+            Logical minimum: 0
+        Logical Maximum (255)
+            Header
+                .... ..10 = bSize: 2 bytes (2)
+                .... 01.. = bType: Global (1)
+                0010 .... = bTag: Logical Maximum (0x2)
+            Logical maximum: 255
+        Report Size (8)
+            Header
+                .... ..01 = bSize: 1 byte (1)
+                .... 01.. = bType: Global (1)
+                0111 .... = bTag: Report Size (0x7)
+            Report size: 8
+        Report Count (39)
+            Header
+                .... ..01 = bSize: 1 byte (1)
+                .... 01.. = bType: Global (1)
+                1001 .... = bTag: Report Count (0x9)
+            Report count: 39
+        Feature (Data,Array,Abs)
+            Header
+                .... ..01 = bSize: 1 byte (1)
+                .... 00.. = bType: Main (0)
+                1011 .... = bTag: Feature (0xb)
+            .... .... 0 = Data/constant: Data
+            .... ...0 . = Data type: Array
+            .... ..0. . = Coordinates: Absolute
+            .... .0.. . = Min/max wraparound: No Wrap
+            .... 0... . = Physical relationship to data: Linear
+            ...0 .... . = Preferred state: Preferred State
+            ..0. .... . = Has null position: No Null position
+            .0.. .... . = (Non)-volatile: Non Volatile
+            0... .... . = Bits or bytes: Buffered bytes (default, no second byte present)
+        End Collection
+            Header
+                .... ..00 = bSize: 0 bytes (0)
+                .... 00.. = bType: Main (0)
+                1100 .... = bTag: End Collection (0xc)
