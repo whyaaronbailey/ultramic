@@ -1,12 +1,12 @@
 
 
-# UltraMic -- Add Macros to Nuance PowerMic III using AutoHotkey v1.1 [AutoHotkey v 1.1](https://www.autohotkey.com/)
+# UltraMic -- Add Macros to Nuance PowerMic II using AutoHotkey v1.1 [AutoHotkey v 1.1](https://www.autohotkey.com/)
 
 Using [jleb's AHKHID](https://github.com/jleb/AHKHID) and AHK 1.1, the attached code allows the user to simply add macros to the Nuance PowerMic III. The simple demonstration code add 'CTRL-C' to the left mouse button and 'CTRL-V' to the right mouse button on the PowerMic. This gives you the framework to make much more complicated macros that are assigned to PowerMic buttons, for example, copying the dictated report to clipboard automatically when hitting a button assigned to sign report. The possibilities are endless.
 
 ## How to Use
 
-This is hard coded for the Nuance PowerMic III -- see below if you're using a different dictation mic. I captured the input information resulting from PowerMic button clicks, as summaring in this crude ASCII representation of PowerMic:
+This is hard coded for the Nuance PowerMic II -- see below if you're using a different dictation mic. I captured the input information resulting from PowerMic button clicks, as summaring in this crude ASCII representation of PowerMic:
 
 ```
 
