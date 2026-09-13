@@ -67,13 +67,9 @@ If you have a device other than a Nuance PowerMic III, obtain the VID, PID, usag
 
 **September 2026**
 
-* Fixed a missing brace that kept the script from loading
-* Fixed the Edge check, which was always true
-* Macros now use the left and right dots, since the mouse button codes are PowerMic III only
-* A macro fires once per press, even while another button is held
-* No longer receives every mouse move and keystroke
-* Left dot code corrected to 8388608
-* Fixed the duplicate submodule entry and added clone instructions
+* Corrected syntax, errors and formatting.
+* The buttons on either side of the trackball are fixed as left and right mouse clicks and can't be programmed. Macros go on the left dot and right dot.
+* Added AHKHID as a submodule.
 
 ## TODO:
 
