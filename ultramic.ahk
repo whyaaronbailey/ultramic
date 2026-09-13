@@ -1,67 +1,53 @@
+#Requires AutoHotkey v2.0
 #SingleInstance Force
-#include %A_ScriptDir%\lib\AHKHID.ahk
-#Persistent
-Menu, Tray, Tip, UltraMic
-Menu, Tray, Icon, %A_ScriptDir%\ultramic.ico
-Menu, Tray, Add
-Menu, Tray, Add, Microsoft Edge, OpenEdge
-Menu, Tray, Add, Google Chrome, OpenChrome
-Menu, Tray, Add
-Menu, Tray, Add, StatDx, OpenStatDx
-Menu, Tray, Add, qGenda, OpenqGenda
+Persistent
 
-OpenqGenda() { 
-	Run, https://www.qgenda.com/ 
-	}
+A_IconTip := "UltraMic"
+TraySetIcon(A_ScriptDir "\ultramic.ico")
+A_TrayMenu.Add()
+A_TrayMenu.Add("Microsoft Edge", (*) => Run("msedge.exe"))
+A_TrayMenu.Add("Google Chrome", (*) => Run("chrome.exe"))
+A_TrayMenu.Add()
+A_TrayMenu.Add("StatDx", (*) => Run("https://my.StatDx.com"))
+A_TrayMenu.Add("qGenda", (*) => Run("https://www.qgenda.com/"))
 
-OpenStatDx() { 
-	Run, https://my.StatDx.com 
-	}
-	
-OpenEdge() { 
-	Run, msedge.exe 
-	}
-OpenChrome() { 
-	Run, chrome.exe 
-	}
-
-Gui, +LastFound
-GuiH := WinExist()
-;SendMode, Input
-
-;set input level to be able to activate hotkey of merge script
-#InputLevel 0 
-
-;Intercept WM_INPUT messages
-WM_INPUT := 0x00FF
-OnMessage(WM_INPUT, "InputMsg")
+;hidden window to receive WM_INPUT
+win := Gui()
 
 ;register usage page 1 (PowerMic), but skip mice and keyboards
-AHKHID_AddRegister(3)
-AHKHID_AddRegister(1, 0, GuiH, RIDEV_INPUTSINK + RIDEV_PAGEONLY)
-AHKHID_AddRegister(1, 2, 0, RIDEV_EXCLUDE)
-AHKHID_AddRegister(1, 6, 0, RIDEV_EXCLUDE)
-AHKHID_Register()
+size := 8 + A_PtrSize
+devices := Buffer(size * 3, 0)
+AddDevice(0, 1, 0, 0x120, win.Hwnd)  ;RIDEV_PAGEONLY + RIDEV_INPUTSINK
+AddDevice(1, 1, 2, 0x10, 0)          ;RIDEV_EXCLUDE mice
+AddDevice(2, 1, 6, 0x10, 0)          ;RIDEV_EXCLUDE keyboards
+DllCall("RegisterRawInputDevices", "Ptr", devices, "UInt", 3, "UInt", size)
 
-InputMsg(wParam, lParam)
+AddDevice(i, usagePage, usage, flags, hwnd) {
+	NumPut("UShort", usagePage, "UShort", usage, "UInt", flags, "Ptr", hwnd, devices, i * size)
+}
+
+OnMessage(0x00FF, InputMsg)  ;WM_INPUT
+
+InputMsg(wParam, lParam, *)
 {
-	Local devh, key, pressed
-	Static held := 0
-	Critical    ;or otherwise you could get ERROR_INVALID_HANDLE
+	static held := 0
+	static header := 8 + 2 * A_PtrSize
+	Critical
 
-	;get handle of device
-	devh := AHKHID_GetInputInfo(lParam, II_DEVHANDLE)
+	;get the raw input
+	rawSize := 0
+	DllCall("GetRawInputData", "Ptr", lParam, "UInt", 0x10000003, "Ptr", 0, "UIntP", &rawSize, "UInt", header)
+	raw := Buffer(rawSize, 0)
+	if DllCall("GetRawInputData", "Ptr", lParam, "UInt", 0x10000003, "Ptr", raw, "UIntP", &rawSize, "UInt", header) != rawSize
+		return
 
-	If (devh = -1)
-        Or (AHKHID_GetDevInfo(devh, DI_DEVTYPE, True) != RIM_TYPEHID)
-        Or (AHKHID_GetDevInfo(devh, DI_HID_VENDORID, True) != 1364)
-        Or (AHKHID_GetDevInfo(devh, DI_HID_PRODUCTID, True) != 4097)
-		Return  ;not a PowerMic
+	if NumGet(raw, 0, "UInt") != 2 || !IsPowerMic(NumGet(raw, 8, "Ptr"))
+		return  ;not a PowerMic
 
 	;get the keycode
-	key := AHKHID_GetInputInfo(lParam, II_MSE_RAWBUTTONS)
+	key := NumGet(raw, header + 8, "UInt")
 	; uncomment the line below to be alerted of the key
-	; msgBox, %key%
+	; MsgBox(key)
 
 	;only buttons that just went down
 	pressed := key & ~held
@@ -69,17 +55,26 @@ InputMsg(wParam, lParam)
 
 	if (pressed & 8388608) ; If the left dot on the Powermic is clicked
 	{
-		Send, {Ctrl Down}c{Ctrl Up}
+		Send("^c")
 	}
-
 
 	if (pressed & 33554432) ; If the right dot on the Powermic is clicked
 	{
-		If WinActive("ahk_exe msedge.exe")
+		if WinActive("ahk_exe msedge.exe")
 		{
-			Send,  {Ctrl Down}v{Ctrl Up}
+			Send("^v")
 		}
 	}
+}
+
+;Nuance PowerMic II and III are both VID 1364 / PID 4097
+IsPowerMic(device)
+{
+	info := Buffer(32, 0)
+	NumPut("UInt", 32, info)
+	infoSize := 32
+	DllCall("GetRawInputDeviceInfoW", "Ptr", device, "UInt", 0x2000000b, "Ptr", info, "UIntP", &infoSize)
+	return NumGet(info, 8, "UInt") = 1364 && NumGet(info, 12, "UInt") = 4097
 }
 
 
@@ -138,4 +133,3 @@ Left mouse 67108864 (PowerMic III)
 Right mouse 134217728 (PowerMic III)
 
 */
-

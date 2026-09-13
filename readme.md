@@ -1,18 +1,14 @@
 
 
-# UltraMic -- Add Macros to Nuance PowerMic II using AutoHotkey v1.1 [AutoHotkey v 1.1](https://www.autohotkey.com/)
+# UltraMic -- Add Macros to Nuance PowerMic II using AutoHotkey v2 [AutoHotkey v2](https://www.autohotkey.com/)
 
-Using [jleb's AHKHID](https://github.com/jleb/AHKHID) and AHK 1.1, the attached code allows the user to simply add macros to the Nuance PowerMic III. The simple demonstration code add 'CTRL-C' to the left dot button and 'CTRL-V' to the right dot button on the PowerMic. This gives you the framework to make much more complicated macros that are assigned to PowerMic buttons, for example, copying the dictated report to clipboard automatically when hitting a button assigned to sign report. The possibilities are endless.
+Using AHK v2, the attached code allows the user to simply add macros to the Nuance PowerMic III. The simple demonstration code add 'CTRL-C' to the left dot button and 'CTRL-V' to the right dot button on the PowerMic. This gives you the framework to make much more complicated macros that are assigned to PowerMic buttons, for example, copying the dictated report to clipboard automatically when hitting a button assigned to sign report. The possibilities are endless.
 
 ## Installation
 
-AHKHID is a submodule, so clone with:
+Requires AutoHotkey v2. No other libraries needed. Download or clone the repo and run `ultramic.ahk`.
 
-```
-git clone --recurse-submodules https://github.com/whyaaronbailey/ultramic.git
-```
-
-Already cloned? Run `git submodule update --init`. Requires AutoHotkey v1.1.
+For AutoHotkey v1.1, use the `main` branch.
 
 ## How to Use
 
@@ -65,15 +61,16 @@ If you have a device other than a Nuance PowerMic III, obtain the VID, PID, usag
 
 ## Updates
 
+**September 2026 (v2 branch)**
+
+* Ported to AutoHotkey v2.
+* Removed the AHKHID library. The script reads the PowerMic directly.
+
 **September 2026**
 
-* Fixed a missing brace that kept the script from loading
-* Fixed the Edge check, which was always true
-* Macros now use the left and right dots, since the mouse button codes are PowerMic III only
-* A macro fires once per press, even while another button is held
-* No longer receives every mouse move and keystroke
-* Left dot code corrected to 8388608
-* Fixed the duplicate submodule entry and added clone instructions
+* Corrected syntax, errors and formatting.
+* The buttons on either side of the trackball are fixed as left and right mouse clicks and can't be programmed. Macros go on the left dot and right dot.
+* Added AHKHID as a submodule.
 
 ## TODO:
 
