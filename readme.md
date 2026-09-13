@@ -2,7 +2,17 @@
 
 # UltraMic -- Add Macros to Nuance PowerMic II using AutoHotkey v1.1 [AutoHotkey v 1.1](https://www.autohotkey.com/)
 
-Using [jleb's AHKHID](https://github.com/jleb/AHKHID) and AHK 1.1, the attached code allows the user to simply add macros to the Nuance PowerMic III. The simple demonstration code add 'CTRL-C' to the left mouse button and 'CTRL-V' to the right mouse button on the PowerMic. This gives you the framework to make much more complicated macros that are assigned to PowerMic buttons, for example, copying the dictated report to clipboard automatically when hitting a button assigned to sign report. The possibilities are endless.
+Using [jleb's AHKHID](https://github.com/jleb/AHKHID) and AHK 1.1, the attached code allows the user to simply add macros to the Nuance PowerMic III. The simple demonstration code add 'CTRL-C' to the left dot button and 'CTRL-V' to the right dot button on the PowerMic. This gives you the framework to make much more complicated macros that are assigned to PowerMic buttons, for example, copying the dictated report to clipboard automatically when hitting a button assigned to sign report. The possibilities are endless.
+
+## Installation
+
+AHKHID is a submodule, so clone with:
+
+```
+git clone --recurse-submodules https://github.com/whyaaronbailey/ultramic.git
+```
+
+Already cloned? Run `git submodule update --init`. Requires AutoHotkey v1.1.
 
 ## How to Use
 
@@ -26,7 +36,7 @@ This is hard coded for the Nuance PowerMic II -- see below if you're using a dif
 |                                  |
 |+--------+ +--------+  +---------+|
 || L DOT  | | Check  |  | R DOT   ||
-|| 8388609| |16777216|  | 33554432||
+|| 8388608| |16777216|  | 33554432||
 |+--------+ +------- +  +--------+||
 |                                  |
 |+--------+  +-------+  +---------+|
@@ -48,6 +58,8 @@ This is hard coded for the Nuance PowerMic II -- see below if you're using a dif
 +----------------------------------+
 
 ```
+
+L MOUSE and R MOUSE are PowerMic III codes. On a PowerMic II those buttons are plain mouse clicks, so use the dots instead.
 
 If you have a device other than a Nuance PowerMic III, obtain the VID, PID, usage and usagepage information and plug them into the code. 
 
